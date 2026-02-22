@@ -1,6 +1,5 @@
 import { motion } from 'motion/react';
 import React, { useState } from 'react';
-import { Facebook, Instagram, Linkedin, Twitter, ExternalLink, Mail, Phone, MapPin, Send } from 'lucide-react';
 
 export default function ContactScreen() {
   const [formData, setFormData] = useState({
@@ -33,10 +32,10 @@ export default function ContactScreen() {
   ];
 
   const contactInfo = [
-    { icon: <Mail size={20} />, label: 'Correo Electrónico', value: 'info@jabelpack.com', href: 'mailto:info@jabelpack.com' },
-    { icon: <Phone size={20} />, label: 'Teléfono Principal', value: '(55) 71 59 42 19', href: 'tel:+525571594219' },
-    { icon: <Phone size={20} />, label: 'Teléfono Secundario', value: '(55) 71 59 42 58', href: 'tel:+525571594258' },
-    { icon: <MapPin size={20} />, label: 'Dirección', value: 'Calle Aguacate S/N, Blvd. Tultitlán Pte. Lázaro Cárdenas, Tultitlán de Mariano Escobedo, Edo. Méx. C.P. 54901', href: 'https://www.google.com/maps/search/Calle+Aguacate+S%2FN,+Blvd.+Tultitl%C3%A1n+Pte.+L%C3%A1zaro+C%C3%A1rdenas' },
+    { label: 'Correo Electrónico', value: 'info@jabelpack.com', href: 'mailto:info@jabelpack.com' },
+    { label: 'Teléfono Principal', value: '(55) 71 59 42 19', href: 'tel:+525571594219' },
+    { label: 'Teléfono Secundario', value: '(55) 71 59 42 58', href: 'tel:+525571594258' },
+    { label: 'Dirección', value: 'Calle Aguacate S/N, Blvd. Tultitlán Pte. Lázaro Cárdenas, Tultitlán de Mariano Escobedo, Edo. Méx. C.P. 54901', href: 'https://www.google.com/maps/search/Calle+Aguacate+S%2FN,+Blvd.+Tultitl%C3%A1n+Pte.+L%C3%A1zaro+C%C3%A1rdenas' },
   ];
 
   return (
@@ -72,9 +71,6 @@ export default function ContactScreen() {
             rel="noopener noreferrer"
             className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm hover:border-primary transition-colors"
           >
-            <div className="size-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary flex-shrink-0">
-              {info.icon}
-            </div>
             <div>
               <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">{info.label}</p>
               <p className="text-sm font-bold text-slate-900 leading-relaxed">{info.value}</p>
@@ -93,9 +89,6 @@ export default function ContactScreen() {
             animate={{ opacity: 1, scale: 1 }}
             className="bg-green-50 border border-green-100 p-6 rounded-2xl text-center"
           >
-            <div className="size-12 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="material-symbols-outlined">check</span>
-            </div>
             <h4 className="text-green-800 font-bold mb-2">¡Mensaje Enviado!</h4>
             <p className="text-green-600 text-sm">Nos pondremos en contacto contigo a la brevedad.</p>
           </motion.div>
@@ -169,17 +162,17 @@ export default function ContactScreen() {
 
       <div className="mt-12">
         <h3 className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-6 text-center">Síguenos en Redes Sociales</h3>
-        <div className="flex justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-4">
           {socialMedia.map((social) => (
             <a
               key={social.name}
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`size-12 bg-white border border-slate-100 rounded-2xl flex items-center justify-center transition-all shadow-sm ${social.color}`}
+              className={`px-4 py-2 bg-white border border-slate-100 rounded-xl flex items-center justify-center transition-all shadow-sm text-[10px] font-bold uppercase tracking-widest text-slate-600 ${social.color}`}
               title={social.name}
             >
-              <img src={social.icon} alt={social.name} className="size-6" />
+              {social.name}
             </a>
           ))}
         </div>

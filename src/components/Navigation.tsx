@@ -7,12 +7,12 @@ interface NavProps {
 }
 
 export default function Navigation({ currentScreen, setScreen }: NavProps) {
-  const items: { id: Screen; icon: string; label: string }[] = [
-    { id: 'home', icon: 'home', label: 'Inicio' },
-    { id: 'identity', icon: 'corporate_fare', label: 'Identidad' },
-    { id: 'catalog', icon: 'package_2', label: 'Catálogo' },
-    { id: 'blog', icon: 'newspaper', label: 'Blog' },
-    { id: 'contact', icon: 'mail', label: 'Contacto' },
+  const items: { id: Screen; label: string }[] = [
+    { id: 'home', label: 'Inicio' },
+    { id: 'identity', label: 'Identidad' },
+    { id: 'catalog', label: 'Catálogo' },
+    { id: 'blog', label: 'Blog' },
+    { id: 'contact', label: 'Contacto' },
   ];
 
   return (
@@ -26,14 +26,11 @@ export default function Navigation({ currentScreen, setScreen }: NavProps) {
               currentScreen === item.id ? 'text-primary' : 'text-slate-400'
             }`}
           >
-            <span className={`material-symbols-outlined text-2xl ${currentScreen === item.id ? 'fill-icon' : ''}`}>
-              {item.icon}
-            </span>
             <span className="text-[10px] font-bold uppercase tracking-tighter">{item.label}</span>
             {currentScreen === item.id && (
               <motion.div
                 layoutId="nav-indicator"
-                className="absolute -top-px w-8 h-0.5 bg-primary"
+                className="absolute -top-px w-12 h-0.5 bg-primary"
               />
             )}
           </button>

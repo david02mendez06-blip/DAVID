@@ -12,7 +12,6 @@ export default function CatalogScreen() {
       desc: 'Soluciones personalizadas con impresión de alta calidad para destacar tu marca en el anaquel.',
       image: 'https://picsum.photos/seed/label-printed/800/600',
       tag: 'Más Vendido',
-      icon: 'print',
       features: ['Hasta 10 colores', 'Barniz UV']
     },
     {
@@ -21,7 +20,6 @@ export default function CatalogScreen() {
       desc: 'Flexibilidad y resistencia en empaques que protegen y promocionan tu producto eficazmente.',
       image: 'https://picsum.photos/seed/packaging/800/600',
       tag: 'Industrial',
-      icon: 'inventory_2',
       features: ['Materiales Flexibles', 'Alta Resistencia']
     },
     {
@@ -30,7 +28,6 @@ export default function CatalogScreen() {
       desc: 'Ideal para impresión térmica directa o transferencia térmica en líneas de producción.',
       image: 'https://picsum.photos/seed/white-label/800/600',
       tag: 'Logística',
-      icon: 'label',
       features: ['Papel Térmico', 'Transferencia']
     },
     {
@@ -39,7 +36,6 @@ export default function CatalogScreen() {
       desc: 'Cintas de transferencia térmica de cera, resina y mixtas para una impresión duradera.',
       image: 'https://picsum.photos/seed/ribbon/800/600',
       tag: 'Insumos',
-      icon: 'colorize',
       features: ['Cera', 'Resina', 'Mixto']
     }
   ];
@@ -104,7 +100,6 @@ export default function CatalogScreen() {
             <div className="p-5">
               <div className="flex justify-between items-start mb-2">
                 <h4 className="text-xl font-extrabold text-slate-900">{p.title}</h4>
-                <span className="material-symbols-outlined text-secondary">{p.icon}</span>
               </div>
               <p className="text-slate-500 text-xs mb-4">{p.desc}</p>
               <div className="flex flex-wrap gap-2">
@@ -121,8 +116,7 @@ export default function CatalogScreen() {
 
       {/* CTA */}
       <div className="sticky bottom-24 px-5 z-40">
-        <button className="w-full bg-primary text-white font-bold py-4 rounded-2xl shadow-2xl shadow-primary/30 flex items-center justify-center gap-3 active:scale-[0.98] transition-transform">
-          <span className="material-symbols-outlined">collections_bookmark</span>
+        <button className="w-full bg-primary text-white font-bold py-4 rounded-2xl shadow-2xl shadow-primary/30 flex items-center justify-center active:scale-[0.98] transition-transform">
           <span>Solicitar Muestrario Físico</span>
         </button>
       </div>

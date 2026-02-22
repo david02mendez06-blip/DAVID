@@ -8,7 +8,6 @@ export default function HomeScreen() {
     title: string;
     desc: string;
     details: string[];
-    icon: string;
     color: string;
   }>(null);
 
@@ -56,7 +55,6 @@ export default function HomeScreen() {
 
   const services = [
     { 
-      icon: 'design_services', 
       title: 'Diseño y Preprensa', 
       image: 'https://jabelpack.com/wp-content/uploads/2022/01/servicio-1200x801px.jpg',
       desc: 'Contamos con materiales para que tu producto destaque sin dejar a un lado la función.',
@@ -71,7 +69,6 @@ export default function HomeScreen() {
       text: 'text-primary'
     },
     { 
-      icon: 'build', 
       title: 'Servicio Técnico', 
       image: 'https://jabelpack.com/wp-content/uploads/2022/01/etiqueta-blanca-3-1200px.jpg',
       desc: 'Mantenimiento preventivo para impresoras y asesoría técnica especializada.',
@@ -86,7 +83,6 @@ export default function HomeScreen() {
       text: 'text-secondary'
     },
     { 
-      icon: 'shopping_cart', 
       title: 'Venta de Insumos', 
       image: 'https://jabelpack.com/wp-content/uploads/2022/01/etiqueta-blanca-2-1200px.jpg',
       desc: 'Gran variedad de aplicaciones y materiales para etiquetado y embalaje.',
@@ -103,12 +99,12 @@ export default function HomeScreen() {
   ];
 
   const sectors = [
-    { icon: 'restaurant', label: 'Alimentos', image: 'https://jabelpack.com/wp-content/uploads/2022/01/alimentos.jpg' },
-    { icon: 'home', label: 'Hogar', image: 'https://jabelpack.com/wp-content/uploads/2022/01/gato-hogar-2.jpg' },
-    { icon: 'face', label: 'Cuidado Personal', image: 'https://jabelpack.com/wp-content/uploads/2022/01/personal.png' },
-    { icon: 'medication', label: 'Farmacéutico', image: 'https://jabelpack.com/wp-content/uploads/2022/01/etiqueta-blanca-3-1200px.jpg' },
-    { icon: 'directions_car', label: 'Automotriz', image: 'https://jabelpack.com/wp-content/uploads/2022/01/automotriz.jpg' },
-    { icon: 'factory', label: 'Industrial', image: 'https://jabelpack.com/wp-content/uploads/2022/01/industrial.jpg' },
+    { label: 'Alimentos', image: 'https://jabelpack.com/wp-content/uploads/2022/01/alimentos.jpg' },
+    { label: 'Hogar', image: 'https://jabelpack.com/wp-content/uploads/2022/01/gato-hogar-2.jpg' },
+    { label: 'Cuidado Personal', image: 'https://jabelpack.com/wp-content/uploads/2022/01/personal.png' },
+    { label: 'Farmacéutico', image: 'https://jabelpack.com/wp-content/uploads/2022/01/etiqueta-blanca-3-1200px.jpg' },
+    { label: 'Automotriz', image: 'https://jabelpack.com/wp-content/uploads/2022/01/automotriz.jpg' },
+    { label: 'Industrial', image: 'https://jabelpack.com/wp-content/uploads/2022/01/industrial.jpg' },
   ];
 
   return (
@@ -182,15 +178,15 @@ export default function HomeScreen() {
           <div className="absolute top-1/2 -translate-y-1/2 left-4 right-4 z-30 flex justify-between opacity-0 group-hover:opacity-100 transition-opacity">
             <button 
               onClick={prevSlide}
-              className="size-10 rounded-full bg-black/20 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-primary transition-all"
+              className="px-4 h-10 rounded-full bg-black/20 backdrop-blur-md border border-white/20 flex items-center justify-center text-white text-[10px] font-bold uppercase tracking-widest hover:bg-primary transition-all"
             >
-              <span className="material-symbols-outlined">chevron_left</span>
+              Anterior
             </button>
             <button 
               onClick={nextSlide}
-              className="size-10 rounded-full bg-black/20 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-primary transition-all"
+              className="px-4 h-10 rounded-full bg-black/20 backdrop-blur-md border border-white/20 flex items-center justify-center text-white text-[10px] font-bold uppercase tracking-widest hover:bg-primary transition-all"
             >
-              <span className="material-symbols-outlined">chevron_right</span>
+              Siguiente
             </button>
           </div>
 
@@ -234,15 +230,15 @@ export default function HomeScreen() {
           <div className="flex gap-2">
             <button 
               onClick={() => scroll('left')}
-              className="size-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm"
+              className="px-4 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 text-[10px] font-bold uppercase tracking-widest hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm"
             >
-              <span className="material-symbols-outlined">chevron_left</span>
+              Ant.
             </button>
             <button 
               onClick={() => scroll('right')}
-              className="size-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm"
+              className="px-4 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 text-[10px] font-bold uppercase tracking-widest hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm"
             >
-              <span className="material-symbols-outlined">chevron_right</span>
+              Sig.
             </button>
           </div>
         </div>
@@ -260,7 +256,6 @@ export default function HomeScreen() {
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
-                <span className="material-symbols-outlined text-white text-3xl mb-2">{s.icon}</span>
                 <span className="text-lg font-extrabold text-white">{s.label}</span>
               </div>
             </div>
@@ -288,9 +283,6 @@ export default function HomeScreen() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <div className={`absolute top-4 left-4 size-12 ${s.bg} backdrop-blur-md rounded-xl flex items-center justify-center ${s.text} border border-white/20`}>
-                  <span className="material-symbols-outlined text-2xl font-bold">{s.icon}</span>
-                </div>
               </div>
               <div className={`p-6 border-l-8 ${s.color}`}>
                 <h4 className="text-xl font-extrabold text-brand-black mb-2">{s.title}</h4>
@@ -307,9 +299,6 @@ export default function HomeScreen() {
       {/* Sustainability */}
       <section className="px-4 py-12 bg-white">
         <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 flex flex-col items-center text-center">
-          <div className="size-16 bg-green-50 rounded-full flex items-center justify-center mb-6">
-            <span className="material-symbols-outlined text-green-600 text-3xl">eco</span>
-          </div>
           <h2 className="text-2xl font-extrabold text-brand-black mb-3">Compromiso Sustentable</h2>
           <p className="text-slate-600 text-sm leading-relaxed mb-6">
             Desarrollamos soluciones de etiquetado con materiales biodegradables y procesos de baja huella de carbono.
@@ -341,9 +330,7 @@ export default function HomeScreen() {
               <div className="w-12 h-1.5 bg-slate-200 rounded-full mx-auto mb-8" />
               
               <div className="flex items-center gap-4 mb-6">
-                <div className={`size-14 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-900 border-l-4 ${selectedService.color}`}>
-                  <span className="material-symbols-outlined text-3xl">{selectedService.icon}</span>
-                </div>
+                <div className={`h-14 w-1 bg-slate-900 rounded-full ${selectedService.color}`} />
                 <div>
                   <h3 className="text-2xl font-extrabold text-slate-900">{selectedService.title}</h3>
                   <p className="text-slate-500 text-sm">Información Detallada</p>
@@ -358,7 +345,6 @@ export default function HomeScreen() {
                 <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest">¿Qué incluye este servicio?</h4>
                 {selectedService.details.map((detail, idx) => (
                   <div key={idx} className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-100">
-                    <span className="material-symbols-outlined text-primary text-xl">check_circle</span>
                     <span className="text-sm font-medium text-slate-700">{detail}</span>
                   </div>
                 ))}

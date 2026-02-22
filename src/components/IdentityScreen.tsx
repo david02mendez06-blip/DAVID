@@ -2,10 +2,10 @@ import { motion } from 'motion/react';
 
 export default function IdentityScreen() {
   const values = [
-    { icon: 'workspace_premium', title: 'Integridad', desc: 'Actuamos con transparencia y honestidad en cada eslabón de nuestra cadena de valor.' },
-    { icon: 'leaderboard', title: 'Liderazgo', desc: 'Inspiramos el cambio a través de la proactividad y la excelencia técnica.' },
-    { icon: 'handshake', title: 'Compromiso', desc: 'Dedicación total para alcanzar los objetivos estratégicos de nuestros clientes B2B.' },
-    { icon: 'psychology', title: 'Innovación', desc: 'Búsqueda constante de nuevas tecnologías en etiquetado y logística.' },
+    { title: 'Integridad', desc: 'Actuamos con transparencia y honestidad en cada eslabón de nuestra cadena de valor.' },
+    { title: 'Liderazgo', desc: 'Inspiramos el cambio a través de la proactividad y la excelencia técnica.' },
+    { title: 'Compromiso', desc: 'Dedicación total para alcanzar los objetivos estratégicos de nuestros clientes B2B.' },
+    { title: 'Innovación', desc: 'Búsqueda constante de nuevas tecnologías en etiquetado y logística.' },
   ];
 
   return (
@@ -35,7 +35,6 @@ export default function IdentityScreen() {
           <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full"></div>
           <div className="relative z-10">
             <div className="size-14 bg-primary rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-primary/20">
-              <span className="material-symbols-outlined text-3xl fill-icon">flag</span>
             </div>
             <h3 className="text-2xl font-extrabold text-slate-900 mb-3">Misión</h3>
             <p className="text-slate-600 text-sm leading-relaxed">
@@ -48,7 +47,6 @@ export default function IdentityScreen() {
           <div className="absolute -right-4 -top-4 w-24 h-24 bg-secondary/5 rounded-full"></div>
           <div className="relative z-10">
             <div className="size-14 bg-secondary rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-secondary/20">
-              <span className="material-symbols-outlined text-3xl fill-icon">visibility</span>
             </div>
             <h3 className="text-2xl font-extrabold text-slate-900 mb-3">Visión</h3>
             <p className="text-slate-600 text-sm leading-relaxed">
@@ -70,9 +68,6 @@ export default function IdentityScreen() {
         <div className="grid grid-cols-1 gap-4">
           {values.map((v, i) => (
             <div key={i} className="flex items-start gap-4 p-5 bg-white rounded-2xl shadow-sm border border-slate-100">
-              <div className="flex-shrink-0 size-10 bg-primary/10 rounded-xl flex items-center justify-center">
-                <span className="material-symbols-outlined text-primary text-2xl">{v.icon}</span>
-              </div>
               <div>
                 <h4 className="text-lg font-bold text-slate-900">{v.title}</h4>
                 <p className="text-sm text-slate-500 mt-1">{v.desc}</p>
@@ -94,9 +89,6 @@ export default function IdentityScreen() {
             />
           </div>
           <div className="relative z-10">
-            <div className="size-12 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-secondary/30">
-              <span className="material-symbols-outlined text-secondary text-3xl">location_on</span>
-            </div>
             <h3 className="text-white text-2xl font-extrabold mb-3">Presencia Estratégica</h3>
             <p className="text-slate-400 text-sm mb-8 max-w-xs mx-auto">
               Calle Aguacate S/N, Blvd. Tultitlán Pte. Lázaro Cárdenas, Tultitlán de Mariano Escobedo, Edo. Méx.
@@ -105,9 +97,9 @@ export default function IdentityScreen() {
               href="https://www.google.com/maps/search/Calle+Aguacate+S%2FN,+Blvd.+Tultitl%C3%A1n+Pte.+L%C3%A1zaro+C%C3%A1rdenas"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full bg-secondary hover:bg-secondary/90 text-white font-extrabold py-4 px-8 rounded-2xl text-sm transition-colors flex items-center justify-center gap-2"
+              className="w-full bg-secondary hover:bg-secondary/90 text-white font-extrabold py-4 px-8 rounded-2xl text-sm transition-colors flex items-center justify-center"
             >
-              VER UBICACIÓN <span className="material-symbols-outlined text-lg">arrow_forward</span>
+              VER UBICACIÓN
             </a>
           </div>
         </div>

@@ -15,13 +15,13 @@ export default function Header() {
           href="https://jabelpack.com/" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 transition-colors text-slate-600"
+          className="text-[10px] font-bold uppercase tracking-widest text-slate-600 hover:text-primary transition-colors"
           title="Visitar Sitio Web Oficial"
         >
-          <span className="material-symbols-outlined">language</span>
+          Sitio Web
         </a>
-        <button className="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 transition-colors">
-          <span className="material-symbols-outlined">menu</span>
+        <button className="text-[10px] font-bold uppercase tracking-widest text-slate-600 hover:text-primary transition-colors">
+          Menú
         </button>
       </div>
     </header>
