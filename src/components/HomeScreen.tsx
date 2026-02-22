@@ -167,11 +167,10 @@ export default function HomeScreen() {
                   transition={{ delay: 0.5 }}
                   className="flex flex-col gap-3 pt-2"
                 >
-                  <button className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-lg text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20 transition-all uppercase tracking-wider">
+                  <button className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-lg text-sm flex items-center justify-center shadow-lg shadow-primary/20 transition-all uppercase tracking-wider">
                     Cotiza con nosotros
                   </button>
-                  <button className="w-full bg-white/10 backdrop-blur-md text-white font-bold py-4 rounded-lg text-sm flex items-center justify-center gap-2 border border-white/30 transition-all uppercase tracking-wider">
-                    <span className="material-symbols-outlined text-lg">inventory_2</span>
+                  <button className="w-full bg-white/10 backdrop-blur-md text-white font-bold py-4 rounded-lg text-sm flex items-center justify-center border border-white/30 transition-all uppercase tracking-wider">
                     Conoce nuestros productos
                   </button>
                 </motion.div>
@@ -296,8 +295,8 @@ export default function HomeScreen() {
               <div className={`p-6 border-l-8 ${s.color}`}>
                 <h4 className="text-xl font-extrabold text-brand-black mb-2">{s.title}</h4>
                 <p className="text-sm text-slate-500 leading-relaxed mb-4">{s.desc}</p>
-                <div className={`flex items-center ${s.text} text-xs font-bold uppercase tracking-wider gap-1`}>
-                  Saber más <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                <div className={`flex items-center ${s.text} text-xs font-bold uppercase tracking-wider`}>
+                  Saber más
                 </div>
               </div>
             </button>

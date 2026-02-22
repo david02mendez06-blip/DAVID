@@ -57,9 +57,8 @@ export default function ContactScreen() {
           href="https://jabelpack.com/" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="w-full bg-slate-900 text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-3 shadow-xl shadow-slate-900/20 active:scale-[0.98] transition-all"
+          className="w-full bg-slate-900 text-white font-bold py-4 rounded-2xl flex items-center justify-center shadow-xl shadow-slate-900/20 active:scale-[0.98] transition-all"
         >
-          <ExternalLink size={20} />
           <span>Visitar Sitio Web Oficial</span>
         </a>
       </div>
@@ -160,9 +159,8 @@ export default function ContactScreen() {
 
             <button
               type="submit"
-              className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-[0.98] transition-all"
+              className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 active:scale-[0.98] transition-all"
             >
-              <Send size={18} />
               <span>Enviar Mensaje</span>
             </button>
           </form>

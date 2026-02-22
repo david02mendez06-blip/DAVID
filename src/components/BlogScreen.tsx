@@ -70,15 +70,10 @@ export default function BlogScreen() {
               <div className="flex items-center justify-between">
                 <a 
                   href="#" 
-                  className="text-primary text-sm font-bold flex items-center gap-1 hover:underline"
+                  className="text-primary text-sm font-bold flex items-center hover:underline"
                 >
-                  Leer artículo completo <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  Leer artículo completo
                 </a>
-                <div className="flex gap-2">
-                  <button className="size-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:text-primary transition-colors">
-                    <span className="material-symbols-outlined text-lg">share</span>
-                  </button>
-                </div>
               </div>
             </div>
           </article>
@@ -129,12 +124,10 @@ export default function BlogScreen() {
 
       {/* Call to Action Buttons */}
       <div className="mt-12 grid grid-cols-2 gap-4">
-        <button className="bg-white border border-slate-200 p-4 rounded-2xl flex flex-col items-center gap-2 hover:border-primary transition-colors group">
-          <span className="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">download</span>
+        <button className="bg-white border border-slate-200 p-4 rounded-2xl flex flex-col items-center hover:border-primary transition-colors group">
           <span className="text-xs font-bold text-slate-700">Descargar Media Kit</span>
         </button>
-        <button className="bg-white border border-slate-200 p-4 rounded-2xl flex flex-col items-center gap-2 hover:border-secondary transition-colors group">
-          <span className="material-symbols-outlined text-secondary group-hover:scale-110 transition-transform">contact_support</span>
+        <button className="bg-white border border-slate-200 p-4 rounded-2xl flex flex-col items-center hover:border-secondary transition-colors group">
           <span className="text-xs font-bold text-slate-700">Soporte Técnico</span>
         </button>
       </div>
