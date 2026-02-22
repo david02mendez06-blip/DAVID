@@ -1,0 +1,7 @@
+{
+  "name": "Jabel Pack - Soluciones de Etiquetado",
+  "description": "Aplicación corporativa de Jabel Pack para soluciones de etiquetado industrial, catálogo de productos e identidad corporativa.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
