@@ -43,11 +43,11 @@ export default function ContactScreen() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      className="pb-32 px-6 pt-8"
+      className="pb-32 px-6 pt-8 bg-black min-h-screen"
     >
       <div className="mb-10">
-        <h2 className="text-3xl font-extrabold text-slate-900 mb-2">Contacto</h2>
-        <p className="text-slate-500">¿Tienes dudas o necesitas una cotización? Estamos para ayudarte.</p>
+        <h2 className="text-3xl font-extrabold text-white mb-2">Contacto</h2>
+        <p className="text-slate-400">¿Tienes dudas o necesitas una cotización? Estamos para ayudarte.</p>
       </div>
 
       {/* Official Website Button */}
@@ -69,33 +69,33 @@ export default function ContactScreen() {
             href={info.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm hover:border-primary transition-colors"
+            className="flex items-start gap-4 p-5 bg-slate-900 rounded-2xl border border-white/5 shadow-sm hover:border-primary transition-colors"
           >
             <div>
-              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">{info.label}</p>
-              <p className="text-sm font-bold text-slate-900 leading-relaxed">{info.value}</p>
+              <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">{info.label}</p>
+              <p className="text-sm font-bold text-white leading-relaxed">{info.value}</p>
             </div>
           </a>
         ))}
       </div>
 
       {/* Contact Form */}
-      <section className="mt-12 bg-white rounded-3xl p-8 border border-slate-100 shadow-sm">
-        <h3 className="text-2xl font-extrabold text-slate-900 mb-6">Envíanos un mensaje</h3>
+      <section className="mt-12 bg-slate-900 rounded-3xl p-8 border border-white/5 shadow-sm">
+        <h3 className="text-2xl font-extrabold text-white mb-6">Envíanos un mensaje</h3>
         
         {isSubmitted ? (
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-green-50 border border-green-100 p-6 rounded-2xl text-center"
+            className="bg-green-500/10 border border-green-500/20 p-6 rounded-2xl text-center"
           >
-            <h4 className="text-green-800 font-bold mb-2">¡Mensaje Enviado!</h4>
-            <p className="text-green-600 text-sm">Nos pondremos en contacto contigo a la brevedad.</p>
+            <h4 className="text-green-400 font-bold mb-2">¡Mensaje Enviado!</h4>
+            <p className="text-green-500/70 text-sm">Nos pondremos en contacto contigo a la brevedad.</p>
           </motion.div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="name" className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1 ml-1">Nombre Completo</label>
+              <label htmlFor="name" className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-1 ml-1">Nombre Completo</label>
               <input
                 type="text"
                 id="name"
@@ -104,12 +104,12 @@ export default function ContactScreen() {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Ej. Juan Pérez"
-                className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-primary focus:bg-white transition-all"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-primary focus:bg-white/10 transition-all"
               />
             </div>
             
             <div>
-              <label htmlFor="email" className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1 ml-1">Correo Electrónico</label>
+              <label htmlFor="email" className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-1 ml-1">Correo Electrónico</label>
               <input
                 type="email"
                 id="email"
@@ -118,12 +118,12 @@ export default function ContactScreen() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="juan@ejemplo.com"
-                className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-primary focus:bg-white transition-all"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-primary focus:bg-white/10 transition-all"
               />
             </div>
 
             <div>
-              <label htmlFor="subject" className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1 ml-1">Asunto</label>
+              <label htmlFor="subject" className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-1 ml-1">Asunto</label>
               <input
                 type="text"
                 id="subject"
@@ -132,12 +132,12 @@ export default function ContactScreen() {
                 value={formData.subject}
                 onChange={handleChange}
                 placeholder="Ej. Cotización de etiquetas"
-                className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-primary focus:bg-white transition-all"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-primary focus:bg-white/10 transition-all"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1 ml-1">Mensaje</label>
+              <label htmlFor="message" className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-1 ml-1">Mensaje</label>
               <textarea
                 id="message"
                 name="message"
@@ -146,7 +146,7 @@ export default function ContactScreen() {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Cuéntanos sobre tu proyecto..."
-                className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-primary focus:bg-white transition-all resize-none"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-primary focus:bg-white/10 transition-all resize-none"
               ></textarea>
             </div>
 
@@ -161,7 +161,7 @@ export default function ContactScreen() {
       </section>
 
       <div className="mt-12">
-        <h3 className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-6 text-center">Síguenos en Redes Sociales</h3>
+        <h3 className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-6 text-center">Síguenos en Redes Sociales</h3>
         <div className="flex flex-wrap justify-center gap-4">
           {socialMedia.map((social) => (
             <a
@@ -169,7 +169,7 @@ export default function ContactScreen() {
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`px-4 py-2 bg-white border border-slate-100 rounded-xl flex items-center justify-center transition-all shadow-sm text-[10px] font-bold uppercase tracking-widest text-slate-600 ${social.color}`}
+              className={`px-4 py-2 bg-slate-900 border border-white/5 rounded-xl flex items-center justify-center transition-all shadow-sm text-[10px] font-bold uppercase tracking-widest text-slate-400 ${social.color}`}
               title={social.name}
             >
               {social.name}
@@ -178,9 +178,9 @@ export default function ContactScreen() {
         </div>
       </div>
 
-      <section className="mt-12 bg-slate-50 rounded-3xl p-8 border border-slate-100">
-        <h3 className="text-xl font-extrabold text-slate-900 mb-4 text-center">Encuéntranos</h3>
-        <div className="aspect-video w-full rounded-2xl overflow-hidden grayscale opacity-80 border border-slate-200">
+      <section className="mt-12 bg-slate-900 rounded-3xl p-8 border border-white/5">
+        <h3 className="text-xl font-extrabold text-white mb-4 text-center">Encuéntranos</h3>
+        <div className="aspect-video w-full rounded-2xl overflow-hidden grayscale opacity-60 border border-white/10">
           <img 
             src="https://jabelpack.com/wp-content/uploads/2022/01/industrial.jpg" 
             alt="Ubicación Jabel Pack" 
@@ -188,7 +188,7 @@ export default function ContactScreen() {
             referrerPolicy="no-referrer"
           />
         </div>
-        <p className="text-center text-[10px] text-slate-400 mt-4 uppercase tracking-widest">
+        <p className="text-center text-[10px] text-slate-500 mt-4 uppercase tracking-widest">
           Horario de atención: Lunes a Viernes 9:00 AM - 6:00 PM
         </p>
       </section>

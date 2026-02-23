@@ -280,17 +280,17 @@ export default function HomeScreen() {
       </section>
 
       {/* Services */}
-      <section className="px-4 py-12 bg-white">
+      <section className="px-4 py-12 bg-black">
         <div className="mb-8">
           <h3 className="text-secondary font-bold text-xs tracking-[0.2em] uppercase mb-1">Nuestros Servicios</h3>
-          <h2 className="text-2xl font-extrabold text-brand-black">Aliado en Producción</h2>
+          <h2 className="text-2xl font-extrabold text-white">Aliado en Producción</h2>
         </div>
         <div className="grid grid-cols-1 gap-8">
           {services.map((s, i) => (
             <button 
               key={i} 
               onClick={() => setSelectedService(s)}
-              className={`group relative flex flex-col text-left bg-white rounded-3xl overflow-hidden border border-slate-100 transition-all shadow-md active:scale-[0.98]`}
+              className={`group relative flex flex-col text-left bg-slate-900 rounded-3xl overflow-hidden border border-white/5 transition-all shadow-xl active:scale-[0.98]`}
             >
               <div className="w-full h-48 overflow-hidden relative">
                 <img 
@@ -301,8 +301,8 @@ export default function HomeScreen() {
                 />
               </div>
               <div className={`p-6 border-l-8 ${s.color}`}>
-                <h4 className="text-xl font-extrabold text-brand-black mb-2">{s.title}</h4>
-                <p className="text-sm text-slate-500 leading-relaxed mb-4">{s.desc}</p>
+                <h4 className="text-xl font-extrabold text-white mb-2">{s.title}</h4>
+                <p className="text-sm text-slate-400 leading-relaxed mb-4">{s.desc}</p>
                 <div className={`flex items-center ${s.text} text-xs font-bold uppercase tracking-wider`}>
                   Saber más
                 </div>
@@ -313,13 +313,13 @@ export default function HomeScreen() {
       </section>
 
       {/* Sustainability */}
-      <section className="px-4 py-12 bg-white">
-        <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 flex flex-col items-center text-center">
-          <h2 className="text-2xl font-extrabold text-brand-black mb-3">Compromiso Sustentable</h2>
-          <p className="text-slate-600 text-sm leading-relaxed mb-6">
+      <section className="px-4 py-12 bg-black">
+        <div className="bg-slate-900 p-8 rounded-2xl border border-white/5 flex flex-col items-center text-center">
+          <h2 className="text-2xl font-extrabold text-white mb-3">Compromiso Sustentable</h2>
+          <p className="text-slate-400 text-sm leading-relaxed mb-6">
             Desarrollamos soluciones de etiquetado con materiales biodegradables y procesos de baja huella de carbono.
           </p>
-          <button className="bg-brand-black text-white px-8 py-3 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-primary transition-colors">
+          <button className="bg-white text-black px-8 py-3 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-primary hover:text-white transition-colors">
             Ver Reporte ESG
           </button>
         </div>

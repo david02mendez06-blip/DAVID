@@ -37,17 +37,17 @@ export default function BlogScreen() {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.95 }}
-      className="pb-32 px-4 pt-6"
+      className="pb-32 px-4 pt-6 bg-black min-h-screen"
     >
       <div className="mb-8">
-        <h2 className="text-3xl font-extrabold text-slate-900 mb-2">Blog Jabel Pack</h2>
-        <p className="text-slate-500">Noticias, tendencias y consejos sobre empaque e identificación industrial.</p>
+        <h2 className="text-3xl font-extrabold text-white mb-2">Blog Jabel Pack</h2>
+        <p className="text-slate-400">Noticias, tendencias y consejos sobre empaque e identificación industrial.</p>
       </div>
 
       {/* Featured Post */}
       <div className="space-y-8">
         {posts.map((post) => (
-          <article key={post.id} className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm">
+          <article key={post.id} className="bg-slate-900 rounded-3xl overflow-hidden border border-white/5 shadow-xl">
             <img 
               src={post.image} 
               alt={post.title} 
@@ -59,12 +59,12 @@ export default function BlogScreen() {
                 <span className="text-[10px] font-bold text-primary uppercase tracking-widest bg-primary/10 px-2 py-1 rounded">
                   {post.category}
                 </span>
-                <span className="text-[10px] text-slate-400 font-medium">{post.date}</span>
+                <span className="text-[10px] text-slate-500 font-medium">{post.date}</span>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3 leading-tight">
+              <h3 className="text-xl font-bold text-white mb-3 leading-tight">
                 {post.title}
               </h3>
-              <p className="text-slate-600 text-sm leading-relaxed mb-6">
+              <p className="text-slate-400 text-sm leading-relaxed mb-6">
                 {post.excerpt}
               </p>
               <div className="flex items-center justify-between">
@@ -124,11 +124,11 @@ export default function BlogScreen() {
 
       {/* Call to Action Buttons */}
       <div className="mt-12 grid grid-cols-2 gap-4">
-        <button className="bg-white border border-slate-200 p-4 rounded-2xl flex flex-col items-center hover:border-primary transition-colors group">
-          <span className="text-xs font-bold text-slate-700">Descargar Media Kit</span>
+        <button className="bg-slate-900 border border-white/5 p-4 rounded-2xl flex flex-col items-center hover:border-primary transition-colors group">
+          <span className="text-xs font-bold text-slate-300">Descargar Media Kit</span>
         </button>
-        <button className="bg-white border border-slate-200 p-4 rounded-2xl flex flex-col items-center hover:border-secondary transition-colors group">
-          <span className="text-xs font-bold text-slate-700">Soporte Técnico</span>
+        <button className="bg-slate-900 border border-white/5 p-4 rounded-2xl flex flex-col items-center hover:border-secondary transition-colors group">
+          <span className="text-xs font-bold text-slate-300">Soporte Técnico</span>
         </button>
       </div>
     </motion.div>
