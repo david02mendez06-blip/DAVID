@@ -182,7 +182,7 @@ export default function ContactScreen() {
         <h3 className="text-xl font-extrabold text-slate-900 mb-4 text-center">Encuéntranos</h3>
         <div className="aspect-video w-full rounded-2xl overflow-hidden grayscale opacity-80 border border-slate-200">
           <img 
-            src="https://picsum.photos/seed/jabel-location/800/450" 
+            src="https://jabelpack.com/wp-content/uploads/2022/01/industrial.jpg" 
             alt="Ubicación Jabel Pack" 
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"

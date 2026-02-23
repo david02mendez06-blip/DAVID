@@ -220,23 +220,23 @@ export default function HomeScreen() {
       </div>
 
       {/* Sectors */}
-      <section className="py-12 bg-slate-50 overflow-hidden">
+      <section className="py-12 bg-black overflow-hidden">
         <div className="px-4 mb-8 flex items-end justify-between">
           <div>
             <h3 className="text-primary font-bold text-xs tracking-[0.2em] uppercase mb-1">Brindamos soluciones</h3>
-            <h2 className="text-2xl font-extrabold text-brand-black">Diferentes Sectores</h2>
+            <h2 className="text-2xl font-extrabold text-white">Diferentes Sectores</h2>
             <div className="w-10 h-1 bg-secondary mt-2 rounded-full"></div>
           </div>
           <div className="flex gap-2">
             <button 
               onClick={() => scroll('left')}
-              className="px-4 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 text-[10px] font-bold uppercase tracking-widest hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm"
+              className="px-4 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white text-[10px] font-bold uppercase tracking-widest hover:bg-primary transition-all shadow-sm"
             >
               Ant.
             </button>
             <button 
               onClick={() => scroll('right')}
-              className="px-4 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 text-[10px] font-bold uppercase tracking-widest hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm"
+              className="px-4 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white text-[10px] font-bold uppercase tracking-widest hover:bg-primary transition-all shadow-sm"
             >
               Sig.
             </button>
@@ -260,6 +260,22 @@ export default function HomeScreen() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Featured Section with Mascot */}
+      <section className="px-4 py-12 bg-black">
+        <div className="bg-slate-900 rounded-[2rem] overflow-hidden border border-white/10 relative">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -mr-32 -mt-32"></div>
+            <div className="p-8 relative z-10 flex flex-col gap-6">
+              <div>
+                <h3 className="text-white text-2xl font-extrabold leading-tight">¡Hola! Soy parte de Jabel Pack</h3>
+                <p className="text-primary font-bold text-xs uppercase tracking-widest">Tu aliado en empaque</p>
+              </div>
+            </div>
+            <p className="text-slate-300 text-sm leading-relaxed px-8 pb-8">
+              Estamos listos para darle vida a tus ideas con la mejor calidad en impresión y materiales.
+            </p>
         </div>
       </section>
 

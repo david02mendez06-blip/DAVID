@@ -16,40 +16,44 @@ export default function IdentityScreen() {
       className="pb-32"
     >
       {/* Hero Section */}
-      <section className="px-6 py-10 bg-white">
-        <div className="space-y-4">
+      <section className="px-6 py-12 bg-black text-white">
+        <div className="space-y-6">
           <div className="flex items-center gap-2">
             <span className="h-px w-8 bg-primary"></span>
             <span className="text-primary text-xs font-bold uppercase tracking-widest">Nuestra Identidad</span>
           </div>
-          <h2 className="text-4xl font-extrabold text-slate-900 leading-[1.1]">Liderazgo en Sistemas de Etiquetado</h2>
-          <p className="text-slate-600 text-base leading-relaxed">
-            Ubicados estratégicamente en <span className="font-bold text-slate-900">Lázaro Cárdenas, México</span>, somos el aliado industrial que redefine la eficiencia en logística y empaque.
+          <h2 className="text-4xl font-extrabold leading-[1.1]">Liderazgo en Sistemas de Etiquetado</h2>
+          <p className="text-slate-400 text-base leading-relaxed">
+            Ubicados estratégicamente en <span className="font-bold text-white">Lázaro Cárdenas, México</span>, somos el aliado industrial que redefine la eficiencia en logística y empaque.
           </p>
+          <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+            <img 
+              src="https://jabelpack.com/wp-content/uploads/2022/01/industrial.jpg" 
+              alt="Producción Jabel Pack" 
+              className="w-full h-48 object-cover"
+              referrerPolicy="no-referrer"
+            />
+          </div>
         </div>
       </section>
 
       {/* Mission & Vision */}
-      <section className="px-4 py-6 space-y-6">
-        <div className="relative overflow-hidden bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
-          <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full"></div>
+      <section className="px-4 py-6 space-y-6 bg-black">
+        <div className="relative overflow-hidden bg-slate-900 p-8 rounded-3xl border border-white/5 shadow-xl">
+          <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl"></div>
           <div className="relative z-10">
-            <div className="size-14 bg-primary rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-primary/20">
-            </div>
-            <h3 className="text-2xl font-extrabold text-slate-900 mb-3">Misión</h3>
-            <p className="text-slate-600 text-sm leading-relaxed">
+            <h3 className="text-2xl font-extrabold text-white mb-3">Misión</h3>
+            <p className="text-slate-400 text-sm leading-relaxed">
               Proveer soluciones integrales de etiquetado y logística que excedan las expectativas de nuestros clientes, impulsando la competitividad de sus marcas a través de innovación y excelencia operativa.
             </p>
           </div>
         </div>
 
-        <div className="relative overflow-hidden bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
-          <div className="absolute -right-4 -top-4 w-24 h-24 bg-secondary/5 rounded-full"></div>
+        <div className="relative overflow-hidden bg-slate-900 p-8 rounded-3xl border border-white/5 shadow-xl">
+          <div className="absolute -right-4 -top-4 w-24 h-24 bg-secondary/10 rounded-full blur-2xl"></div>
           <div className="relative z-10">
-            <div className="size-14 bg-secondary rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-secondary/20">
-            </div>
-            <h3 className="text-2xl font-extrabold text-slate-900 mb-3">Visión</h3>
-            <p className="text-slate-600 text-sm leading-relaxed">
+            <h3 className="text-2xl font-extrabold text-white mb-3">Visión</h3>
+            <p className="text-slate-400 text-sm leading-relaxed">
               Ser el referente nacional en sistemas de empaquetado y distribución, reconocidos por nuestra integridad tecnológica y compromiso con la transformación industrial de México.
             </p>
           </div>
@@ -57,20 +61,20 @@ export default function IdentityScreen() {
       </section>
 
       {/* Values */}
-      <section className="px-4 py-8 bg-slate-50">
+      <section className="px-4 py-12 bg-black">
         <div className="mb-8 px-2">
           <div className="flex items-center gap-2 mb-1">
             <div className="w-2 h-2 rounded-full bg-secondary"></div>
             <h3 className="text-secondary font-bold text-xs tracking-wider uppercase">Cultura Corporativa</h3>
           </div>
-          <h2 className="text-3xl font-extrabold text-slate-900">Nuestros Valores</h2>
+          <h2 className="text-3xl font-extrabold text-white">Nuestros Valores</h2>
         </div>
         <div className="grid grid-cols-1 gap-4">
           {values.map((v, i) => (
-            <div key={i} className="flex items-start gap-4 p-5 bg-white rounded-2xl shadow-sm border border-slate-100">
+            <div key={i} className="flex items-start gap-4 p-5 bg-slate-900 rounded-2xl shadow-sm border border-white/5">
               <div>
-                <h4 className="text-lg font-bold text-slate-900">{v.title}</h4>
-                <p className="text-sm text-slate-500 mt-1">{v.desc}</p>
+                <h4 className="text-lg font-bold text-white">{v.title}</h4>
+                <p className="text-sm text-slate-400 mt-1">{v.desc}</p>
               </div>
             </div>
           ))}
@@ -84,7 +88,7 @@ export default function IdentityScreen() {
             <img 
               alt="Map background" 
               className="w-full h-full object-cover" 
-              src="https://picsum.photos/seed/mexico-map/800/600?grayscale" 
+              src="https://jabelpack.com/wp-content/uploads/2022/01/industrial.jpg" 
               referrerPolicy="no-referrer"
             />
           </div>
