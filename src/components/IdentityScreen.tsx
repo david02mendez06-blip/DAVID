@@ -22,9 +22,9 @@ export default function IdentityScreen() {
             <span className="h-px w-8 bg-primary"></span>
             <span className="text-primary text-xs font-bold uppercase tracking-widest">Nuestra Identidad</span>
           </div>
-          <h2 className="text-4xl font-extrabold leading-[1.1]">Liderazgo en Sistemas de Etiquetado</h2>
+          <h2 className="text-4xl font-extrabold leading-[1.1]">Somos una empresa 100% Mexicana</h2>
           <p className="text-slate-400 text-base leading-relaxed">
-            Ubicados estratégicamente en <span className="font-bold text-white">Lázaro Cárdenas, México</span>, somos el aliado industrial que redefine la eficiencia en logística y empaque.
+            Integrada por un equipo joven que busca brindar las <span className="text-white font-bold">soluciones más eficaces</span> para ser un aliado estratégico en la línea de producción.
           </p>
           <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
             <img 
@@ -32,6 +32,7 @@ export default function IdentityScreen() {
               alt="Producción Jabel Pack" 
               className="w-full h-48 object-cover"
               referrerPolicy="no-referrer"
+              loading="lazy"
             />
           </div>
         </div>
@@ -90,6 +91,7 @@ export default function IdentityScreen() {
               className="w-full h-full object-cover" 
               src="https://jabelpack.com/wp-content/uploads/2022/01/industrial.jpg" 
               referrerPolicy="no-referrer"
+              loading="lazy"
             />
           </div>
           <div className="relative z-10">

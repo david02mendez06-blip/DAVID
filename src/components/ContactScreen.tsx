@@ -186,6 +186,7 @@ export default function ContactScreen() {
             alt="Ubicación Jabel Pack" 
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
+            loading="lazy"
           />
         </div>
         <p className="text-center text-[10px] text-slate-500 mt-4 uppercase tracking-widest">

@@ -132,6 +132,7 @@ export default function HomeScreen() {
                 className="absolute inset-0 w-full h-full object-cover" 
                 src={heroSlides[currentSlide].image} 
                 referrerPolicy="no-referrer"
+                loading="lazy"
               />
               
               <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 pb-12 gap-5">
@@ -205,7 +206,7 @@ export default function HomeScreen() {
 
       {/* Stats */}
       <div className="grid grid-cols-3 gap-2 px-4 -mt-6 relative z-30">
-        <div className="bg-white p-4 rounded-xl shadow-xl border border-slate-100 text-center">
+        <div className="bg-slate-900 p-4 rounded-xl shadow-xl border border-white/5 text-center">
           <p className="text-secondary font-extrabold text-xl leading-none">B2B</p>
           <p className="text-[9px] mt-1 text-slate-500 font-bold uppercase tracking-wider">Aliado Estratégico</p>
         </div>
@@ -213,7 +214,7 @@ export default function HomeScreen() {
           <p className="text-white font-extrabold text-xl leading-none">100%</p>
           <p className="text-[9px] mt-1 text-white/80 font-bold uppercase tracking-wider">Eficacia</p>
         </div>
-        <div className="bg-white p-4 rounded-xl shadow-xl border border-slate-100 text-center">
+        <div className="bg-slate-900 p-4 rounded-xl shadow-xl border border-white/5 text-center">
           <p className="text-secondary font-extrabold text-xl leading-none">MX</p>
           <p className="text-[9px] mt-1 text-slate-500 font-bold uppercase tracking-wider">Empresa Local</p>
         </div>
@@ -254,6 +255,7 @@ export default function HomeScreen() {
                 alt={s.label} 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 referrerPolicy="no-referrer"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
                 <span className="text-lg font-extrabold text-white">{s.label}</span>
@@ -269,12 +271,12 @@ export default function HomeScreen() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -mr-32 -mt-32"></div>
             <div className="p-8 relative z-10 flex flex-col gap-6">
               <div>
-                <h3 className="text-white text-2xl font-extrabold leading-tight">¡Hola! Soy parte de Jabel Pack</h3>
-                <p className="text-primary font-bold text-xs uppercase tracking-widest">Tu aliado en empaque</p>
+                <h3 className="text-white text-3xl font-extrabold leading-tight">¡Nos gusta hacerlo divertido!</h3>
+                <p className="text-primary font-bold text-xs uppercase tracking-widest">Slogan Jabel Pack</p>
               </div>
             </div>
             <p className="text-slate-300 text-sm leading-relaxed px-8 pb-8">
-              Estamos listos para darle vida a tus ideas con la mejor calidad en impresión y materiales.
+              En Jabel Pack, creemos que la eficiencia industrial no tiene por qué ser aburrida. Somos tu aliado estratégico que combina <span className="text-white font-bold">tecnología de punta</span> con un enfoque fresco y dinámico.
             </p>
         </div>
       </section>
@@ -298,6 +300,7 @@ export default function HomeScreen() {
                   alt={s.title} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
               <div className={`p-6 border-l-8 ${s.color}`}>
@@ -341,34 +344,34 @@ export default function HomeScreen() {
               animate={{ y: 0 }}
               exit={{ y: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed bottom-0 left-0 right-0 bg-white rounded-t-[32px] z-[101] p-8 pb-12 shadow-2xl max-h-[85vh] overflow-y-auto"
+              className="fixed bottom-0 left-0 right-0 bg-slate-900 rounded-t-[32px] z-[101] p-8 pb-12 shadow-2xl max-h-[85vh] overflow-y-auto border-t border-white/10"
             >
-              <div className="w-12 h-1.5 bg-slate-200 rounded-full mx-auto mb-8" />
+              <div className="w-12 h-1.5 bg-white/10 rounded-full mx-auto mb-8" />
               
               <div className="flex items-center gap-4 mb-6">
-                <div className={`h-14 w-1 bg-slate-900 rounded-full ${selectedService.color}`} />
+                <div className={`h-14 w-1 rounded-full ${selectedService.color}`} />
                 <div>
-                  <h3 className="text-2xl font-extrabold text-slate-900">{selectedService.title}</h3>
+                  <h3 className="text-2xl font-extrabold text-white">{selectedService.title}</h3>
                   <p className="text-slate-500 text-sm">Información Detallada</p>
                 </div>
               </div>
 
-              <p className="text-slate-600 leading-relaxed mb-8">
+              <p className="text-slate-400 leading-relaxed mb-8">
                 {selectedService.desc} En Jabel Pack nos comprometemos a brindar soluciones integrales que optimicen sus procesos de producción.
               </p>
 
               <div className="space-y-4 mb-10">
-                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest">¿Qué incluye este servicio?</h4>
+                <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest">¿Qué incluye este servicio?</h4>
                 {selectedService.details.map((detail, idx) => (
-                  <div key={idx} className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-100">
-                    <span className="text-sm font-medium text-slate-700">{detail}</span>
+                  <div key={idx} className="flex items-start gap-3 p-4 bg-black/40 rounded-xl border border-white/5">
+                    <span className="text-sm font-medium text-slate-300">{detail}</span>
                   </div>
                 ))}
               </div>
 
               <button 
                 onClick={() => setSelectedService(null)}
-                className="w-full bg-slate-900 text-white font-bold py-4 rounded-xl shadow-lg active:scale-[0.98] transition-all"
+                className="w-full bg-primary text-white font-bold py-4 rounded-xl shadow-lg active:scale-[0.98] transition-all"
               >
                 Entendido
               </button>

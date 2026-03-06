@@ -1,4 +1,4 @@
-export type Screen = 'home' | 'identity' | 'catalog' | 'blog' | 'contact';
+export type Screen = 'home' | 'identity' | 'catalog' | 'blog' | 'contact' | 'chatbot' | 'news';
 
 export interface ValueItem {
   icon: string;

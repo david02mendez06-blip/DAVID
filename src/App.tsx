@@ -12,6 +12,8 @@ import IdentityScreen from './components/IdentityScreen';
 import CatalogScreen from './components/CatalogScreen';
 import BlogScreen from './components/BlogScreen';
 import ContactScreen from './components/ContactScreen';
+import ChatbotScreen from './components/ChatbotScreen';
+import NewsScreen from './components/NewsScreen';
 import { Screen } from './types';
 
 export default function App() {
@@ -29,6 +31,10 @@ export default function App() {
         return <BlogScreen key="blog" />;
       case 'contact':
         return <ContactScreen key="contact" />;
+      case 'chatbot':
+        return <ChatbotScreen key="chatbot" />;
+      case 'news':
+        return <NewsScreen key="news" />;
       default:
         return <HomeScreen key="home" />;
     }
