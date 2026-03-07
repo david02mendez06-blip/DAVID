@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Screen } from '../types';
 import { Home, Info, Package, BookOpen, Mail, Sparkles, Bell } from 'lucide-react';
 import { speak } from '../services/ttsService';
@@ -41,8 +41,19 @@ export default function Navigation({ currentScreen, setScreen }: NavProps) {
               <motion.div
                 layoutId="nav-indicator"
                 className="absolute -top-3 w-8 h-1 bg-primary rounded-full"
+                transition={{ type: "spring", stiffness: 380, damping: 30 }}
               />
             )}
+            <AnimatePresence>
+              {currentScreen === item.id && (
+                <motion.div
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.5, opacity: 0 }}
+                  className="absolute inset-0 bg-primary/10 rounded-xl -z-10"
+                />
+              )}
+            </AnimatePresence>
           </button>
         ))}
       </div>

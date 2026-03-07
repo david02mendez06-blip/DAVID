@@ -2,6 +2,8 @@ import { GoogleGenAI, Modality } from "@google/genai";
 
 const audioCache: Record<string, string> = {};
 
+const CACHE_PREFIX = 'tts_v3_'; // Incremented to force refresh with the new improved voice
+
 export async function speak(text: string) {
   // Stop any ongoing speech (Gemini or Browser)
   if (currentAudio) {
@@ -17,7 +19,7 @@ export async function speak(text: string) {
   }
 
   // 2. Check persistent cache (localStorage) to save quota
-  const cachedAudio = localStorage.getItem(`tts_cache_${text}`);
+  const cachedAudio = localStorage.getItem(`${CACHE_PREFIX}${text}`);
   if (cachedAudio) {
     audioCache[text] = cachedAudio; // Sync to memory
     playBase64Audio(cachedAudio, text);
@@ -28,12 +30,16 @@ export async function speak(text: string) {
     const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash-preview-tts",
-      contents: [{ parts: [{ text: `Di con voz profesional y clara: ${text}` }] }],
+      contents: [{ 
+        parts: [{ 
+          text: `Actúa como una asistente amable y profesional. Di con voz femenina, acento neutro latinoamericano y un tono conversacional, cálido y muy natural: ${text}` 
+        }] 
+      }],
       config: {
         responseModalities: [Modality.AUDIO],
         speechConfig: {
           voiceConfig: {
-            prebuiltVoiceConfig: { voiceName: 'Kore' },
+            prebuiltVoiceConfig: { voiceName: 'Kore' }, // 'Kore' is a high-quality female voice
           },
         },
       },
@@ -42,9 +48,9 @@ export async function speak(text: string) {
     const base64Audio = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
     if (base64Audio) {
       audioCache[text] = base64Audio;
-      // Persist to localStorage for future sessions (up to ~5MB limit)
+      // Persist to localStorage for future sessions
       try {
-        localStorage.setItem(`tts_cache_${text}`, base64Audio);
+        localStorage.setItem(`${CACHE_PREFIX}${text}`, base64Audio);
       } catch (e) {
         console.warn("LocalStorage full, skipping persistence");
       }
