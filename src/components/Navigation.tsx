@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Screen } from '../types';
 import { Home, Info, Package, BookOpen, Mail, Sparkles, Bell } from 'lucide-react';
+import { speak } from '../services/ttsService';
 
 interface NavProps {
   currentScreen: Screen;
@@ -14,9 +15,14 @@ export default function Navigation({ currentScreen, setScreen }: NavProps) {
     { id: 'catalog', label: 'Catálogo', icon: Package },
     { id: 'blog', label: 'Blog', icon: BookOpen },
     { id: 'news', label: 'Novedades', icon: Bell },
-    { id: 'chatbot', label: 'Logo AI', icon: Sparkles },
+    { id: 'chatbot', label: 'IA', icon: Sparkles },
     { id: 'contact', label: 'Contacto', icon: Mail },
   ];
+
+  const handleNavClick = (item: { id: Screen; label: string }) => {
+    setScreen(item.id);
+    speak(item.label);
+  };
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-lg border-t border-white/10 pb-safe shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
@@ -24,7 +30,7 @@ export default function Navigation({ currentScreen, setScreen }: NavProps) {
         {items.map((item) => (
           <button
             key={item.id}
-            onClick={() => setScreen(item.id)}
+            onClick={() => handleNavClick(item)}
             className={`flex flex-col items-center gap-1 transition-all relative px-1 ${
               currentScreen === item.id ? 'text-primary scale-110' : 'text-slate-500 hover:text-slate-300'
             }`}
