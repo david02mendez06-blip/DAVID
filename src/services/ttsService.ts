@@ -2,7 +2,7 @@ import { GoogleGenAI, Modality } from "@google/genai";
 
 const audioCache: Record<string, string> = {};
 
-const CACHE_PREFIX = 'tts_v3_'; // Incremented to force refresh with the new improved voice
+const CACHE_PREFIX = 'tts_v5_'; // Incremented to force refresh with the new improved voice instructions
 
 export async function speak(text: string) {
   // Stop any ongoing speech (Gemini or Browser)
@@ -32,7 +32,7 @@ export async function speak(text: string) {
       model: "gemini-2.5-flash-preview-tts",
       contents: [{ 
         parts: [{ 
-          text: `Actúa como una asistente amable y profesional. Di con voz femenina, acento neutro latinoamericano y un tono conversacional, cálido y muy natural: ${text}` 
+          text: `Actúa como una asistente amable, cálida y profesional. Di con voz femenina, acento neutro latinoamericano y un tono conversacional, muy natural, con pausas naturales y respiración suave: ${text}` 
         }] 
       }],
       config: {
