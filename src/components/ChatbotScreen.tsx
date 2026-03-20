@@ -363,37 +363,54 @@ export default function ChatbotScreen() {
                   </button>
                 </div>
                 <div className="grid grid-cols-2 gap-3 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
-                  {history.map((item) => (
-                    <motion.div 
-                      key={item.id}
-                      layoutId={item.id}
-                      onClick={() => {
-                        setGeneratedImage(item.image);
-                        setPrompt(item.prompt);
-                        setShowHistory(false);
-                      }}
-                      className="group relative aspect-square bg-black rounded-2xl overflow-hidden border border-white/5 cursor-pointer hover:border-primary/50 transition-all"
-                    >
-                      <img src={item.image} alt={item.prompt} className="w-full h-full object-cover p-2" />
-                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2 p-2 text-center">
-                        <p className="text-[8px] text-white font-bold line-clamp-2">{item.prompt}</p>
-                        <div className="flex gap-2">
-                          <button 
-                            onClick={(e) => { e.stopPropagation(); downloadImage(item.image); }}
-                            className="size-8 bg-primary rounded-lg flex items-center justify-center text-white"
-                          >
-                            <Download size={14} />
-                          </button>
-                          <button 
-                            onClick={(e) => deleteHistoryItem(item.id, e)}
-                            className="size-8 bg-red-500 rounded-lg flex items-center justify-center text-white"
-                          >
-                            <Trash2 size={14} />
-                          </button>
+                  {history.map((item) => {
+                    const isActive = item.image === generatedImage;
+                    return (
+                      <motion.div 
+                        key={item.id}
+                        layoutId={item.id}
+                        onClick={() => {
+                          setGeneratedImage(item.image);
+                          setPrompt(item.prompt);
+                          setShowHistory(false);
+                        }}
+                        className={`group relative aspect-square rounded-2xl overflow-hidden border transition-all cursor-pointer ${
+                          isActive 
+                            ? 'border-primary bg-slate-800 ring-2 ring-primary/20' 
+                            : 'border-white/5 bg-black hover:border-primary/50'
+                        }`}
+                      >
+                        <img src={item.image} alt={item.prompt} className={`w-full h-full object-cover p-2 transition-transform duration-500 ${isActive ? 'scale-105' : 'group-hover:scale-105'}`} />
+                        
+                        {isActive && (
+                          <div className="absolute top-2 right-2 z-10">
+                            <div className="bg-primary text-white text-[8px] font-black uppercase tracking-widest px-2 py-1 rounded-md shadow-lg flex items-center gap-1">
+                              <div className="size-1 bg-white rounded-full animate-pulse" />
+                              Activo
+                            </div>
+                          </div>
+                        )}
+
+                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2 p-2 text-center">
+                          <p className="text-[8px] text-white font-bold line-clamp-2">{item.prompt}</p>
+                          <div className="flex gap-2">
+                            <button 
+                              onClick={(e) => { e.stopPropagation(); downloadImage(item.image); }}
+                              className="size-8 bg-primary rounded-lg flex items-center justify-center text-white"
+                            >
+                              <Download size={14} />
+                            </button>
+                            <button 
+                              onClick={(e) => deleteHistoryItem(item.id, e)}
+                              className="size-8 bg-red-500 rounded-lg flex items-center justify-center text-white"
+                            >
+                              <Trash2 size={14} />
+                            </button>
+                          </div>
                         </div>
-                      </div>
-                    </motion.div>
-                  ))}
+                      </motion.div>
+                    );
+                  })}
                 </div>
               </div>
             </motion.div>
