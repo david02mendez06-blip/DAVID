@@ -28,6 +28,14 @@
   @apply bg-white/5 backdrop-blur-md border border-white/10;
 }
 
+@layer utilities {
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

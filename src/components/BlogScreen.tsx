@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react';
 import React, { useState } from 'react';
-import { BookOpen, Calendar, ArrowRight, X, Share2, Bookmark } from 'lucide-react';
+import { BookOpen, Calendar, ArrowRight, X, Share2, Bookmark, Clock, Tag, User, MessageSquare, ExternalLink } from 'lucide-react';
 
 export default function BlogScreen() {
   const [email, setEmail] = useState('');
@@ -30,7 +30,9 @@ export default function BlogScreen() {
       date: '14 Jan, 2022',
       image: 'https://jabelpack.com/wp-content/uploads/2022/01/etiqueta-blanca-2-1200px.jpg',
       category: 'Innovación',
-      readTime: '5 min'
+      readTime: '5 min',
+      author: 'Ing. Roberto Jabel',
+      comments: 12
     },
     {
       id: 2,
@@ -46,7 +48,9 @@ export default function BlogScreen() {
       date: '20 Feb, 2022',
       image: 'https://jabelpack.com/wp-content/uploads/2022/01/servicio-1200x801px.jpg',
       category: 'Tecnología',
-      readTime: '8 min'
+      readTime: '8 min',
+      author: 'Lic. Martha Gómez',
+      comments: 8
     },
     {
       id: 3,
@@ -58,7 +62,9 @@ export default function BlogScreen() {
       date: '05 Mar, 2022',
       image: 'https://jabelpack.com/wp-content/uploads/2022/01/alimentos.jpg',
       category: 'Sustentabilidad',
-      readTime: '6 min'
+      readTime: '6 min',
+      author: 'Ing. Carlos Ruiz',
+      comments: 15
     },
     {
       id: 4,
@@ -70,7 +76,9 @@ export default function BlogScreen() {
       date: '12 Apr, 2022',
       image: 'https://jabelpack.com/wp-content/uploads/2022/01/industrial.jpg',
       category: 'Producción',
-      readTime: '7 min'
+      readTime: '7 min',
+      author: 'Ing. Roberto Jabel',
+      comments: 24
     },
     {
       id: 5,
@@ -81,7 +89,9 @@ export default function BlogScreen() {
       date: '28 May, 2022',
       image: 'https://jabelpack.com/wp-content/uploads/2022/01/automotriz.jpg',
       category: 'Seguridad',
-      readTime: '9 min'
+      readTime: '9 min',
+      author: 'Lic. Martha Gómez',
+      comments: 10
     }
   ];
 
@@ -92,23 +102,30 @@ export default function BlogScreen() {
       exit={{ opacity: 0, scale: 0.95 }}
       className="pb-32 px-6 pt-8 bg-black min-h-screen"
     >
-      <div className="mb-10">
-        <div className="flex items-center gap-2 mb-2">
-          <BookOpen className="text-primary" size={24} />
-          <h2 className="text-3xl font-extrabold text-white">Blog Industrial</h2>
+      <div className="mb-12">
+        <div className="flex flex-col gap-3">
+          <div className="flex items-center gap-2">
+            <div className="h-px w-8 bg-primary/50"></div>
+            <span className="text-[10px] font-bold text-primary uppercase tracking-[0.3em]">Centro de Conocimiento</span>
+          </div>
+          <h2 className="text-4xl font-black text-white leading-tight">
+            Insights & <span className="text-primary italic">Innovación</span>
+          </h2>
+          <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
+            Explora las últimas tendencias en etiquetado industrial, logística 4.0 y soluciones de empaque sustentable de Jabel Pack.
+          </p>
         </div>
-        <p className="text-slate-400">Tendencias, tecnología y consejos expertos sobre empaque e identificación.</p>
       </div>
 
-      {/* Featured Post */}
-      <div className="space-y-10">
+      {/* Blog Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {posts.map((post) => (
           <motion.article 
             key={post.id} 
-            whileHover={{ y: -5 }}
-            className="bg-slate-900 rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl group"
+            whileHover={{ y: -10 }}
+            className="bg-slate-900/50 backdrop-blur-sm rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl group flex flex-col h-full"
           >
-            <div className="relative h-64 overflow-hidden">
+            <div className="relative h-72 overflow-hidden">
               <img 
                 src={post.image} 
                 alt={post.title} 
@@ -116,38 +133,53 @@ export default function BlogScreen() {
                 referrerPolicy="no-referrer"
                 loading="lazy"
               />
-              <div className="absolute top-6 left-6">
-                <span className="text-[10px] font-bold text-white uppercase tracking-widest bg-primary px-4 py-2 rounded-full shadow-lg">
+              <div className="absolute top-6 left-6 flex flex-col gap-2">
+                <span className="text-[10px] font-bold text-white uppercase tracking-widest bg-primary px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
+                  <Tag size={12} />
                   {post.category}
                 </span>
               </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"></div>
             </div>
-            <div className="p-8">
-              <div className="flex items-center gap-4 mb-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest">
-                <span className="flex items-center gap-1"><Calendar size={12} /> {post.date}</span>
-                <span className="w-1 h-1 bg-slate-700 rounded-full"></span>
-                <span>{post.readTime} de lectura</span>
+            <div className="p-8 flex flex-col flex-1">
+              <div className="flex flex-wrap items-center gap-y-2 gap-x-4 mb-6 text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+                <span className="flex items-center gap-1.5"><Calendar size={12} className="text-primary" /> {post.date}</span>
+                <span className="flex items-center gap-1.5"><Clock size={12} className="text-primary" /> {post.readTime}</span>
+                <span className="flex items-center gap-1.5"><MessageSquare size={12} className="text-primary" /> {post.comments}</span>
               </div>
-              <h3 className="text-2xl font-extrabold text-white mb-4 leading-tight group-hover:text-primary transition-colors">
+              
+              <h3 className="text-2xl font-black text-white mb-4 leading-tight group-hover:text-primary transition-colors line-clamp-2">
                 {post.title}
               </h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-8 line-clamp-3">
+              
+              <p className="text-slate-400 text-sm leading-relaxed mb-8 line-clamp-3 flex-1">
                 {post.excerpt}
               </p>
+
+              <div className="flex items-center gap-3 mb-8 p-3 bg-white/5 rounded-2xl border border-white/5">
+                <div className="size-10 bg-primary/20 rounded-full flex items-center justify-center text-primary">
+                  <User size={20} />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Autor</span>
+                  <span className="text-xs font-bold text-white">{post.author}</span>
+                </div>
+              </div>
+              
               <div className="flex items-center justify-between pt-6 border-t border-white/5">
                 <button 
                   onClick={() => setSelectedPost(post)}
-                  className="text-primary text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all"
+                  className="text-primary text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all group/btn"
                 >
-                  Leer artículo completo
-                  <ArrowRight size={16} />
+                  Leer más
+                  <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                 </button>
-                <div className="flex gap-4 text-slate-500 items-center">
-                  <button className="hover:text-white transition-colors"><Share2 size={18} /></button>
-                  <button className="hover:text-white transition-colors"><Bookmark size={18} /></button>
-                  <button className="flex items-center gap-1.5 bg-white/5 hover:bg-white/10 text-white px-3 py-1.5 rounded-full transition-all active:scale-95">
-                    <Share2 size={14} className="text-primary" />
-                    <span className="text-[10px] font-bold uppercase tracking-widest">Compartir</span>
+                <div className="flex gap-2">
+                  <button className="p-2 bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white rounded-xl transition-all active:scale-90">
+                    <Bookmark size={16} />
+                  </button>
+                  <button className="p-2 bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white rounded-xl transition-all active:scale-90">
+                    <Share2 size={16} />
                   </button>
                 </div>
               </div>

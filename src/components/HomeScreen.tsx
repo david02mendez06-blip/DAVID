@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useRef, useEffect } from 'react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 export default function HomeScreen() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -165,10 +166,19 @@ export default function HomeScreen() {
                   className="flex flex-col gap-3 pt-2"
                 >
                   <motion.button 
+                    whileHover={{ 
+                      scale: 1.02,
+                      boxShadow: "0 20px 25px -5px rgb(220 38 38 / 0.3), 0 8px 10px -6px rgb(220 38 38 / 0.3)"
+                    }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full bg-primary hover:bg-red-800 text-white hover:text-white font-bold py-4 rounded-lg text-sm flex items-center justify-center shadow-lg shadow-primary/20 transition-all uppercase tracking-wider"
+                    className="w-full bg-primary hover:bg-red-700 text-white font-black py-5 rounded-2xl text-base flex items-center justify-center gap-3 shadow-xl shadow-primary/30 transition-all uppercase tracking-[0.15em] relative overflow-hidden group/cta"
                   >
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/cta:animate-[shimmer_1.5s_infinite]"
+                    />
+                    <Sparkles size={18} className="text-white/80 group-hover/cta:rotate-12 transition-transform" />
                     Cotiza con nosotros
+                    <ArrowRight size={20} className="group-hover/cta:translate-x-1 transition-transform" />
                   </motion.button>
                   <button className="w-full bg-white/10 backdrop-blur-md text-white font-bold py-4 rounded-lg text-sm flex items-center justify-center border border-white/30 transition-all uppercase tracking-wider">
                     Conoce nuestros productos

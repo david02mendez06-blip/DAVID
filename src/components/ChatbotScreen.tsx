@@ -19,6 +19,17 @@ export default function ChatbotScreen() {
   const [history, setHistory] = useState<DesignHistory[]>([]);
   const [showHistory, setShowHistory] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  const MAX_CHARS = 1000;
+
+  // Auto-resize textarea
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+    }
+  }, [prompt]);
 
   // Load history from localStorage on mount
   useEffect(() => {
@@ -244,19 +255,32 @@ export default function ChatbotScreen() {
           
           <div className="relative mb-4">
             <textarea
+              ref={textareaRef}
               value={prompt}
-              onChange={(e) => setPrompt(e.target.value)}
+              onChange={(e) => setPrompt(e.target.value.slice(0, MAX_CHARS))}
               onKeyDown={(e) => {
                 if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
                   generateLabelIdea();
                 }
               }}
               placeholder="Ej: Etiqueta para envase de lubricante industrial, fondo plata, logo circular azul..."
-              className="w-full bg-black/50 border border-white/10 rounded-2xl px-4 py-4 text-white placeholder:text-slate-600 focus:outline-none focus:border-primary transition-all min-h-[128px] max-h-[300px] overflow-y-auto"
+              className="w-full bg-black/50 border border-white/10 rounded-2xl px-4 py-4 pr-12 text-white placeholder:text-slate-600 focus:outline-none focus:border-primary transition-all min-h-[128px] max-h-[400px] overflow-y-auto resize-none"
             />
+            <div className="absolute top-3 right-3">
+              {prompt && (
+                <button 
+                  onClick={() => setPrompt('')}
+                  className="p-1.5 bg-white/5 hover:bg-white/10 rounded-lg text-slate-500 hover:text-white transition-all"
+                >
+                  <X size={14} />
+                </button>
+              )}
+            </div>
             <div className="absolute bottom-3 right-4 flex items-center gap-3 pointer-events-none">
-              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest bg-black/60 px-2 py-1 rounded-lg border border-white/5 backdrop-blur-sm">
-                {prompt.length} caracteres
+              <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded-lg border backdrop-blur-sm transition-colors ${
+                prompt.length >= MAX_CHARS ? 'text-red-500 border-red-500/30 bg-red-500/10' : 'text-slate-500 border-white/5 bg-black/60'
+              }`}>
+                {prompt.length} / {MAX_CHARS}
               </span>
             </div>
           </div>
@@ -383,13 +407,45 @@ export default function ChatbotScreen() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="aspect-square w-full bg-slate-900 rounded-3xl border border-white/10 flex flex-col items-center justify-center gap-4"
+              className="aspect-square w-full bg-slate-900 rounded-3xl border border-white/10 flex flex-col items-center justify-center gap-6 relative overflow-hidden"
             >
+              {/* Background pulse */}
+              <motion.div 
+                animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute inset-0 bg-primary/20 blur-3xl rounded-full"
+              />
+              
               <div className="relative">
-                <div className="size-16 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
-                <Sparkles className="absolute inset-0 m-auto text-primary animate-pulse" size={24} />
+                <div className="size-20 border-4 border-primary/10 border-t-primary rounded-full animate-spin"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Sparkles className="text-primary animate-pulse" size={32} />
+                </div>
               </div>
-              <p className="text-slate-400 font-bold text-sm animate-pulse">Diseñando etiqueta...</p>
+              
+              <div className="text-center space-y-2 z-10">
+                <p className="text-white font-bold text-lg tracking-tight">Procesando Diseño</p>
+                <div className="flex items-center justify-center gap-1">
+                  <motion.span 
+                    animate={{ opacity: [0, 1, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, delay: 0 }}
+                    className="size-1.5 bg-primary rounded-full"
+                  />
+                  <motion.span 
+                    animate={{ opacity: [0, 1, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }}
+                    className="size-1.5 bg-primary rounded-full"
+                  />
+                  <motion.span 
+                    animate={{ opacity: [0, 1, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, delay: 0.4 }}
+                    className="size-1.5 bg-primary rounded-full"
+                  />
+                </div>
+                <p className="text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em] max-w-[200px] mx-auto">
+                  Integrando marca y especificaciones técnicas
+                </p>
+              </div>
             </motion.div>
           )}
 
