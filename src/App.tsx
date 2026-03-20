@@ -9,7 +9,7 @@ import Header from './components/Header';
 import Navigation from './components/Navigation';
 import HomeScreen from './components/HomeScreen';
 import IdentityScreen from './components/IdentityScreen';
-import CatalogScreen from './components/CatalogScreen';
+import { CatalogScreen } from './components/CatalogScreen';
 import BlogScreen from './components/BlogScreen';
 import ContactScreen from './components/ContactScreen';
 import ChatbotScreen from './components/ChatbotScreen';
@@ -26,7 +26,7 @@ export default function App() {
       case 'identity':
         return <IdentityScreen key="identity" />;
       case 'catalog':
-        return <CatalogScreen key="catalog" />;
+        return <CatalogScreen key="catalog" setScreen={setScreen} />;
       case 'blog':
         return <BlogScreen key="blog" />;
       case 'contact':

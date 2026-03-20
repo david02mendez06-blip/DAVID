@@ -164,9 +164,12 @@ export default function HomeScreen() {
                   transition={{ delay: 0.5 }}
                   className="flex flex-col gap-3 pt-2"
                 >
-                  <button className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-lg text-sm flex items-center justify-center shadow-lg shadow-primary/20 transition-all uppercase tracking-wider">
+                  <motion.button 
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full bg-primary hover:bg-red-800 text-white hover:text-white font-bold py-4 rounded-lg text-sm flex items-center justify-center shadow-lg shadow-primary/20 transition-all uppercase tracking-wider"
+                  >
                     Cotiza con nosotros
-                  </button>
+                  </motion.button>
                   <button className="w-full bg-white/10 backdrop-blur-md text-white font-bold py-4 rounded-lg text-sm flex items-center justify-center border border-white/30 transition-all uppercase tracking-wider">
                     Conoce nuestros productos
                   </button>

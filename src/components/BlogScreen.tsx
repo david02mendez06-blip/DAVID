@@ -23,12 +23,13 @@ export default function BlogScreen() {
       content: `Las etiquetas autoadheribles han revolucionado la forma en que los productos se identifican y rastrean en la cadena de suministro moderna. 
                 \n\nEn la era de la Industria 4.0, la precisión y la velocidad son fundamentales. Nuestras etiquetas están diseñadas para soportar procesos de aplicación de alta velocidad, garantizando que cada producto lleve su identidad de forma clara y duradera.
                 \n\nBeneficios clave:
-                - Reducción de tiempos de inactividad.
-                - Compatibilidad con sistemas de visión artificial.
-                - Resistencia a condiciones extremas de almacenamiento.`,
+                - Reducción de tiempos de inactividad en líneas de producción.
+                - Compatibilidad total con sistemas de visión artificial y escaneo láser.
+                - Resistencia superior a condiciones extremas de almacenamiento (humedad, frío, calor).
+                \n\nEn Jabel Pack, entendemos que una etiqueta no es solo un papel pegado; es el punto de contacto digital entre su producto y el consumidor final.`,
       date: '14 Jan, 2022',
       image: 'https://jabelpack.com/wp-content/uploads/2022/01/etiqueta-blanca-2-1200px.jpg',
-      category: 'Sabías que?',
+      category: 'Innovación',
       readTime: '5 min'
     },
     {
@@ -36,11 +37,12 @@ export default function BlogScreen() {
       title: 'Tipos de códigos de barras y su impacto en la logística global',
       excerpt: 'El código de barras es un código basado en la representación de un conjunto de líneas paralelas de distinto grosor que contienen información específica.',
       content: `Desde el clásico EAN-13 hasta los modernos códigos QR y DataMatrix, la simbología de códigos de barras es el lenguaje universal de la logística.
-                \n\nEn Jabel Pack, asesoramos a nuestros clientes en la elección del código adecuado según su industria. Por ejemplo, en el sector farmacéutico, la trazabilidad es crítica, por lo que el uso de DataMatrix permite almacenar más información en espacios reducidos.
-                \n\nFactores a considerar:
-                - Densidad de información requerida.
-                - Distancia de lectura del escáner.
-                - Estándares internacionales de cumplimiento.`,
+                \n\nEn Jabel Pack, asesoramos a nuestros clientes en la elección del código adecuado según su industria. Por ejemplo, en el sector farmacéutico, la trazabilidad es crítica, por lo que el uso de DataMatrix permite almacenar más información en espacios reducidos, incluyendo números de lote y fechas de caducidad.
+                \n\nFactores a considerar para una lectura perfecta:
+                - Densidad de información requerida y espacio disponible.
+                - Distancia de lectura del escáner y tipo de iluminación.
+                - Estándares internacionales de cumplimiento (GS1).
+                \n\nNuestras etiquetas garantizan un contraste óptimo para evitar errores de lectura que pueden costar miles de dólares en retrasos logísticos.`,
       date: '20 Feb, 2022',
       image: 'https://jabelpack.com/wp-content/uploads/2022/01/servicio-1200x801px.jpg',
       category: 'Tecnología',
@@ -51,12 +53,35 @@ export default function BlogScreen() {
       title: 'Sustentabilidad en el Packaging: El futuro es hoy',
       excerpt: 'Descubre cómo los materiales biodegradables están transformando la industria del empaque y reduciendo la huella de carbono.',
       content: `La demanda de soluciones de empaque ecológicas nunca ha sido tan alta. En Jabel Pack, estamos comprometidos con la innovación sustentable.
-                \n\nEstamos desarrollando nuevas líneas de etiquetas fabricadas con fibras recicladas y adhesivos de base agua que facilitan el reciclaje de los envases. 
-                \n\nNuestra meta es ayudar a las empresas a cumplir con sus objetivos ESG sin comprometer la calidad o la durabilidad de su identificación de producto.`,
+                \n\nEstamos desarrollando nuevas líneas de etiquetas fabricadas con fibras recicladas post-consumo y adhesivos de base agua que facilitan el reciclaje de los envases de PET y vidrio. 
+                \n\nNuestra meta es ayudar a las empresas a cumplir con sus objetivos ESG (Environmental, Social, and Governance) sin comprometer la calidad, la estética o la durabilidad de su identificación de producto. El empaque del futuro no solo protege el contenido, sino también el planeta.`,
       date: '05 Mar, 2022',
       image: 'https://jabelpack.com/wp-content/uploads/2022/01/alimentos.jpg',
       category: 'Sustentabilidad',
       readTime: '6 min'
+    },
+    {
+      id: 4,
+      title: 'Flexografía vs. Impresión Digital: ¿Cuál elegir?',
+      excerpt: 'Analizamos las diferencias clave entre los métodos de impresión más populares para etiquetas industriales y comerciales.',
+      content: `Elegir el método de impresión adecuado puede optimizar significativamente sus costos de producción. La flexografía sigue siendo la reina para grandes volúmenes debido a su velocidad y bajo costo unitario.
+                \n\nSin embargo, la impresión digital ha ganado terreno para tirajes cortos y personalizados, permitiendo cambios rápidos de diseño sin el costo de las placas.
+                \n\nEn Jabel Pack contamos con tecnología híbrida que combina lo mejor de ambos mundos: la eficiencia de la flexografía con la versatilidad de lo digital. Analizamos cada proyecto para recomendar la opción más rentable para su negocio.`,
+      date: '12 Apr, 2022',
+      image: 'https://jabelpack.com/wp-content/uploads/2022/01/industrial.jpg',
+      category: 'Producción',
+      readTime: '7 min'
+    },
+    {
+      id: 5,
+      title: 'Etiquetado para el Sector Químico: Normativas GHS',
+      excerpt: 'Cumplir con el Sistema Globalmente Armonizado no es opcional. Te explicamos cómo diseñar etiquetas seguras y legales.',
+      content: `El etiquetado de productos químicos requiere materiales de alta resistencia que soporten derrames, abrasión y exposición a la intemperie. Además, deben cumplir estrictamente con la normativa GHS (Sistema Globalmente Armonizado).
+                \n\nNuestras etiquetas para el sector químico están certificadas para mantener la legibilidad de los pictogramas de seguridad incluso en las condiciones más adversas. La seguridad industrial comienza con una etiqueta bien diseñada y fabricada con los materiales correctos.`,
+      date: '28 May, 2022',
+      image: 'https://jabelpack.com/wp-content/uploads/2022/01/automotriz.jpg',
+      category: 'Seguridad',
+      readTime: '9 min'
     }
   ];
 

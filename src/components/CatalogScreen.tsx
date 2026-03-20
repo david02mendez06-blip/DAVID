@@ -1,8 +1,13 @@
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { useState } from 'react';
-import { X, CheckCircle2, Settings2, Info, ArrowRight, Download, MessageSquare } from 'lucide-react';
+import { X, CheckCircle2, Settings2, Info, ArrowRight, Download, MessageSquare, Sparkles, Package } from 'lucide-react';
+import { Screen } from '../types';
 
-export default function CatalogScreen() {
+interface CatalogScreenProps {
+  setScreen: React.Dispatch<React.SetStateAction<Screen>>;
+}
+
+export const CatalogScreen: React.FC<CatalogScreenProps> = ({ setScreen }) => {
   const [filter, setFilter] = useState('Todas');
   const [selectedProduct, setSelectedProduct] = useState<null | any>(null);
   const filters = ['Todas', 'Automotriz', 'Alimentos', 'Cuidado Personal', 'Farma'];
@@ -121,14 +126,16 @@ export default function CatalogScreen() {
             className="group bg-slate-900 rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl cursor-pointer hover:border-primary/30 transition-all"
           >
             <div className="relative aspect-[16/10] overflow-hidden">
-              <img 
+              <motion.img 
                 alt={p.title} 
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                className="w-full h-full object-cover" 
                 src={p.image} 
+                whileHover={{ scale: 1.05, opacity: 0.9 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
                 referrerPolicy="no-referrer"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60 pointer-events-none"></div>
               <div className="absolute top-6 left-6">
                 <span className="bg-primary/90 backdrop-blur-md text-white text-[10px] font-bold px-4 py-2 rounded-full border border-white/20 uppercase tracking-widest shadow-lg">
                   {p.tag}
@@ -296,9 +303,18 @@ export default function CatalogScreen() {
         </p>
         <p className="text-primary font-bold italic text-xs uppercase tracking-widest">¡Nos gusta hacerlo divertido!</p>
       </footer>
+
+      {/* Floating Chat Button */}
+      <motion.button
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={() => setScreen('chatbot')}
+        className="fixed bottom-28 right-6 size-14 bg-primary text-white rounded-full shadow-2xl shadow-primary/40 flex items-center justify-center z-50 border-2 border-white/20"
+      >
+        <MessageSquare size={24} />
+      </motion.button>
     </motion.div>
   );
 }
-
-// Missing import from previous steps
-import { Package } from 'lucide-react';

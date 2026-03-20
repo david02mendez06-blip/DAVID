@@ -32,19 +32,19 @@ export default function Navigation({ currentScreen, setScreen }: NavProps) {
             <motion.button
               key={item.id}
               onClick={() => handleNavClick(item)}
-              whileTap={{ scale: 0.9 }}
+              whileTap={{ scale: 0.82, rotate: -2 }}
               className={`flex flex-col items-center gap-1 transition-all relative px-1 ${
                 currentScreen === item.id ? 'text-primary' : 'text-slate-500 hover:text-slate-300 opacity-70 hover:opacity-100'
               }`}
             >
             <motion.div
-              animate={currentScreen === item.id ? { scale: [1, 1.25, 1.1] } : { scale: 1 }}
-              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              animate={currentScreen === item.id ? { scale: 1.15 } : { scale: 1 }}
+              transition={{ type: "spring", stiffness: 500, damping: 12 }}
             >
               <item.icon size={20} strokeWidth={currentScreen === item.id ? 2.5 : 2} />
             </motion.div>
             <motion.span 
-              animate={currentScreen === item.id ? { y: -1 } : { y: 0 }}
+              animate={currentScreen === item.id ? { y: -1, scale: 1.05 } : { y: 0, scale: 1 }}
               className="text-[8px] font-bold uppercase tracking-tighter"
             >
               {item.label}
@@ -52,11 +52,15 @@ export default function Navigation({ currentScreen, setScreen }: NavProps) {
             {currentScreen === item.id && (
               <motion.div
                 layoutId="nav-indicator"
-                className="absolute -top-3 w-8 h-1 bg-primary rounded-full shadow-[0_0_8px_rgba(242,125,38,0.6)]"
-                animate={{ opacity: [0.6, 1, 0.6] }}
+                className="absolute -top-3 w-8 h-1 bg-primary rounded-full shadow-[0_0_12px_rgba(242,125,38,0.8)]"
+                animate={{ 
+                  opacity: [0.7, 1, 0.7],
+                  scaleX: [1, 1.2, 1],
+                }}
                 transition={{ 
                   layout: { type: "spring", stiffness: 400, damping: 25 },
-                  opacity: { repeat: Infinity, duration: 2, ease: "easeInOut" }
+                  opacity: { repeat: Infinity, duration: 2.5, ease: "easeInOut" },
+                  scaleX: { repeat: Infinity, duration: 2.5, ease: "easeInOut" }
                 }}
               />
             )}

@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import React, { useState } from 'react';
+import { Loader2 } from 'lucide-react';
 
 export default function ContactScreen() {
   const [formData, setFormData] = useState({
@@ -8,20 +9,68 @@ export default function ContactScreen() {
     subject: '',
     message: ''
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isPending, setIsPending] = useState(false);
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    
+    if (!formData.name.trim()) {
+      newErrors.name = 'El nombre es obligatorio';
+    } else if (formData.name.trim().length < 3) {
+      newErrors.name = 'El nombre debe tener al menos 3 caracteres';
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      newErrors.email = 'El correo electrónico es obligatorio';
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Ingresa un correo electrónico válido';
+    }
+
+    if (!formData.subject.trim()) {
+      newErrors.subject = 'El asunto es obligatorio';
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'El mensaje es obligatorio';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'El mensaje debe tener al menos 10 caracteres';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setTimeout(() => setIsSubmitted(false), 5000);
+    
+    if (validateForm()) {
+      setIsPending(true);
+      // Simulate form submission delay
+      setTimeout(() => {
+        console.log('Form submitted:', formData);
+        setIsPending(false);
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setErrors({});
+        setTimeout(() => setIsSubmitted(false), 5000);
+      }, 1500);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
   };
 
   const socialMedia = [
@@ -93,19 +142,19 @@ export default function ContactScreen() {
             <p className="text-green-500/70 text-sm">Nos pondremos en contacto contigo a la brevedad.</p>
           </motion.div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} noValidate className="space-y-4">
             <div>
               <label htmlFor="name" className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-1 ml-1">Nombre Completo</label>
               <input
                 type="text"
                 id="name"
                 name="name"
-                required
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Ej. Juan Pérez"
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-primary focus:bg-white/10 transition-all"
+                className={`w-full bg-white/5 border ${errors.name ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-primary focus:bg-white/10 transition-all`}
               />
+              {errors.name && <p className="text-red-500 text-[10px] mt-1 ml-1 font-bold uppercase tracking-wider">{errors.name}</p>}
             </div>
             
             <div>
@@ -114,12 +163,12 @@ export default function ContactScreen() {
                 type="email"
                 id="email"
                 name="email"
-                required
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="juan@ejemplo.com"
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-primary focus:bg-white/10 transition-all"
+                className={`w-full bg-white/5 border ${errors.email ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-primary focus:bg-white/10 transition-all`}
               />
+              {errors.email && <p className="text-red-500 text-[10px] mt-1 ml-1 font-bold uppercase tracking-wider">{errors.email}</p>}
             </div>
 
             <div>
@@ -128,12 +177,12 @@ export default function ContactScreen() {
                 type="text"
                 id="subject"
                 name="subject"
-                required
                 value={formData.subject}
                 onChange={handleChange}
                 placeholder="Ej. Cotización de etiquetas"
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-primary focus:bg-white/10 transition-all"
+                className={`w-full bg-white/5 border ${errors.subject ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-primary focus:bg-white/10 transition-all`}
               />
+              {errors.subject && <p className="text-red-500 text-[10px] mt-1 ml-1 font-bold uppercase tracking-wider">{errors.subject}</p>}
             </div>
 
             <div>
@@ -141,20 +190,28 @@ export default function ContactScreen() {
               <textarea
                 id="message"
                 name="message"
-                required
                 rows={4}
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Cuéntanos sobre tu proyecto..."
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-primary focus:bg-white/10 transition-all resize-none"
+                className={`w-full bg-white/5 border ${errors.message ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-primary focus:bg-white/10 transition-all resize-none`}
               ></textarea>
+              {errors.message && <p className="text-red-500 text-[10px] mt-1 ml-1 font-bold uppercase tracking-wider">{errors.message}</p>}
             </div>
 
             <button
               type="submit"
-              className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 active:scale-[0.98] transition-all"
+              disabled={isPending}
+              className={`w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 active:scale-[0.98] transition-all ${isPending ? 'opacity-80 cursor-not-allowed' : ''}`}
             >
-              <span>Enviar Mensaje</span>
+              {isPending ? (
+                <div className="flex items-center gap-2">
+                  <Loader2 className="animate-spin" size={20} />
+                  <span>Enviando...</span>
+                </div>
+              ) : (
+                <span>Enviar Mensaje</span>
+              )}
             </button>
           </form>
         )}
