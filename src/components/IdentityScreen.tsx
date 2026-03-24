@@ -13,7 +13,7 @@ export default function IdentityScreen() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      className="pb-32"
+      className=""
     >
       {/* Hero Section */}
       <section className="px-6 py-12 bg-black text-white">

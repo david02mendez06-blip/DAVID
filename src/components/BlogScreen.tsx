@@ -100,7 +100,7 @@ export default function BlogScreen() {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.95 }}
-      className="pb-32 px-6 pt-8 bg-black min-h-screen"
+      className="px-6 pt-8 bg-black min-h-screen"
     >
       <div className="mb-12">
         <div className="flex flex-col gap-3">

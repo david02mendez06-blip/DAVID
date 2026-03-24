@@ -92,7 +92,7 @@ export default function ContactScreen() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      className="pb-32 px-6 pt-8 bg-black min-h-screen"
+      className="px-6 pt-8 bg-black min-h-screen"
     >
       <div className="mb-10">
         <h2 className="text-3xl font-extrabold text-white mb-2">Contacto</h2>

@@ -113,7 +113,7 @@ export default function HomeScreen() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="pb-32"
+      className=""
     >
       {/* Hero Section Carousel */}
       <section className="relative group">

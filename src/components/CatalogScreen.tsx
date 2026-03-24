@@ -84,7 +84,7 @@ export const CatalogScreen: React.FC<CatalogScreenProps> = ({ setScreen }) => {
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -20 }}
-      className="pb-32 bg-black min-h-screen"
+      className="bg-black min-h-screen"
     >
       <section className="px-6 pt-12 pb-8">
         <div className="flex items-center gap-3 mb-4">

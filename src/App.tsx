@@ -14,6 +14,7 @@ import BlogScreen from './components/BlogScreen';
 import ContactScreen from './components/ContactScreen';
 import ChatbotScreen from './components/ChatbotScreen';
 import NewsScreen from './components/NewsScreen';
+import Footer from './components/Footer';
 import { Screen } from './types';
 
 export default function App() {
@@ -48,6 +49,7 @@ export default function App() {
         <AnimatePresence mode="wait">
           {renderScreen()}
         </AnimatePresence>
+        <Footer />
       </main>
 
       <Navigation currentScreen={currentScreen} setScreen={setScreen} />

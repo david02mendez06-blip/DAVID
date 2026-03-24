@@ -46,7 +46,7 @@ export default function NewsScreen() {
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 20 }}
-      className="pb-32 px-6 pt-8 bg-black min-h-screen"
+      className="px-6 pt-8 bg-black min-h-screen"
     >
       <div className="mb-10">
         <div className="flex items-center gap-2 mb-2">
